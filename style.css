@@ -1,0 +1,129 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Outfit", sans-serif;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background: var(
+    --gradientes-gradiente-hover,
+    linear-gradient(90deg, #9f55ff 0%, #ff46b9 100%)
+  );
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 16px;
+  padding: 64px 96px;
+  background: var(--cores-cinza-dark, #1e1f28);
+  box-shadow: 0px -3px 22px 0px rgba(0, 0, 0, 0.35);
+  position: relative;
+  height: ;
+}
+
+.card:before {
+  content: "";
+  position: absolute;
+  background: linear-gradient(120deg, #c497ff 30%, #9947ff 100%);
+  padding: 8px;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 16px;
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 654px;
+  max-height: 504px;
+  gap: 36px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background: var(
+    --gradientes-gradiente-normal,
+    linear-gradient(90deg, #8323ff 0%, #ff2daf 100%)
+  );
+  border: none;
+  color: #fff;
+}
+
+.movies {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+
+
+.title {
+  max-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title p {
+  color: #feea35;
+  font-weight: 600;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  align-items: center;
+}
+
+.duration,
+.year {
+  align-items: center;
+  gap: 4px;
+  display: flex;
+}
+
+button {
+  font-family: "Outfit", sans-serif;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  display: flex;
+  width: 196px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 4px;
+  border: none;
+  background: #2B2B37;
+  color: #FFF;
+}
