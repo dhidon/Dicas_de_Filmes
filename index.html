@@ -8,75 +8,100 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
-    <div id="card">
-
-      <div id="top">
-        <img id="logo" src="./assets/Logo.svg"/>
-        <button id="top">Nova recomendação <img src="./assets/Iconsax-Linear-flash.svg" /></button>
+    <section class="card">
+      <header>
+        <img src="./assets/Logo.svg" />
+        <button>
+          <p>Nova recomendação</p>
+          <img src="./assets/Iconsax-Linear-flash.svg" />
+        </button>
+      </header>
+      <div class="movies">
+        <div class="movie">
+          <div class="title">
+            <span>Barbie</span>
+            <div>
+              <img src="./assets/Star.svg" />
+              <p>4.9</p>
+            </div>
+          </div>
+          <div class="poster">
+            <img src="./assets/Barbie.jpg" />
+          </div>
+          <div class="info">
+            <div class="duration">
+              <img src="./assets/Clock.svg" />
+              <span>1:54:00</span>
+            </div>
+            <div class="year">
+              <img src="./assets/CalendarBlank.svg" />
+              <span>2023</span>
+            </div>
+            <button>
+              <img src="./assets/Play.svg" />
+              <span>Assistir trailer</span>
+            </button>
+          </div>
+        </div>
+        <div class="movie">
+          <div class="title">
+            <span>Oppenheimer</span>
+            <div>
+              <img src="./assets/Star.svg" />
+              <p>4.9</p>
+            </div>
+          </div>
+          <div class="poster">
+            <img src="./assets/Oppenheimer.jpg" />
+          </div>
+          <div class="info">
+            <div class="duration">
+              <img src="./assets/Clock.svg" />
+              <span>3:00:00</span>
+            </div>
+            <div class="year">
+              <img src="./assets/CalendarBlank.svg" />
+              <span>2023</span>
+            </div>
+            <button>
+              <img src="./assets/Play.svg" />
+              <span>Assistir trailer</span>
+            </button>
+          </div>
+        </div>
+        <div class="movie">
+          <div class="title">
+            <span>Indiana Jones e o Chamado do Destino</span>
+            <div>
+              <img src="./assets/Star.svg" />
+              <p>4.9</p>
+            </div>
+          </div>
+          <div class="poster">
+            <img src="./assets/Indiana Jones e o Chamado do Destino.jpg" />
+          </div>
+          <div class="info">
+            <div class="duration">
+              <img src="./assets/Clock.svg" />
+              <span>2:22:00</span>
+            </div>
+            <div class="year">
+              <img src="./assets/CalendarBlank.svg" />
+              <span>2023</span>
+            </div>
+            <button>
+              <img src="./assets/Play.svg" />
+              <span>Assistir trailer</span>
+            </button>
+          </div>
+        </div>
       </div>
-
-      <div id="recomendations">
-        <span id="movie1">
-          <section>
-            <p id="name">name</p>
-            <img />
-            <p id="score">score</p>
-          </section>
-          <picture></picture>
-          <div id="info">
-            <img />
-            <p>duration</p>
-            <img />
-            <p>year</p>
-          </div>
-          <button>
-            <img />
-            <p>Assistir trailer</p>
-          </button>
-        </span>
-        <span id="movie2"
-          ><section>
-            <p id="name">name</p>
-            <img />
-            <p id="score">score</p>
-          </section>
-          <picture></picture>
-          <div id="info">
-            <img />
-            <p>duration</p>
-            <img />
-            <p>year</p>
-          </div>
-          <button>
-            <img />
-            <p>Assistir trailer</p>
-          </button></span
-        >
-        <span id="movie3"
-          ><section>
-            <p id="name">name</p>
-            <img />
-            <p id="score">score</p>
-          </section>
-          <picture></picture>
-          <div id="info">
-            <img />
-            <p>duration</p>
-            <img />
-            <p>year</p>
-          </div>
-          <button>
-            <img />
-            <p>Assistir trailer</p>
-          </button></span
-        >
-      </div>
-    </div>
+    </section>
   </body>
   <script src="main.js"></script>
 </html>
