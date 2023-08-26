@@ -349,7 +349,7 @@ const data = {
 // https://api.themoviedb.org/3/movie/{movie_id} -- buscar informações extras dos filmes
 
 // https://api.themoviedb.org/3/movie//{movie_id}/videos -- esse será usado para assistir o trailer do filme 
-function wathc(e) {
+function watch(e) {
 
 }
 
