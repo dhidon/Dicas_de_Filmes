@@ -347,21 +347,33 @@ const data = {
 }
 
 // https://api.themoviedb.org/3/movie/{movie_id} -- buscar informações extras dos filmes
+async function getMoreInfo(id) {
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyYzU1ZjdiYzc5N2NmM2IyMjFiYWY0MTZjNDQ1MTBmNCIsInN1YiI6IjU5MmQ1MTFkOTI1MTQxN2JmZjAwZTA5NyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3705hdDXsFbUFapyODPOKcy4oIjudUaAGXqXRdv3s8k",
+    },
+  }
 
-// https://api.themoviedb.org/3/movie//{movie_id}/videos -- esse será usado para assistir o trailer do filme 
-function watch(e) {
+  try {
+    const data = await fetch(
+      "https://api.themoviedb.org/3/movie/" + id,
+      options
+    ).then((response) => response.json())
 
+    return data
+  } catch (error) {
+    console.log(error)
+  }
 }
 
-function createMovieLayout({
-  id,
-  title,
-  score,
-  image,
-  duration,
-  year
+// https://api.themoviedb.org/3/movie//{movie_id}/videos -- esse será usado para assistir o trailer do filme
 
-}) {
+function watch(e) {}
+
+function createMovieLayout({ id, title, score, image, duration, year }) {
   return `          
   <div class="movie">
             <div class="title">
@@ -390,3 +402,46 @@ function createMovieLayout({
             </button>
           </div>`
 }
+
+function select3Videos(results) {
+  const random = () => Math.floor(Math.random() * results.length)
+
+  let selectedVideos = new Set()
+  while (selectedVideos.size < 3) {
+    selectedVideos.add(results[random()].id)
+  }
+
+  return [...selectedVideos]
+}
+
+function minutesToHourMinutesAndSeconds(mintes) {
+  const date = new Date(null)
+  date.setMinutes(minutes)
+  return date.toISOString().slice(11, 19)
+}
+
+async function start() {
+  //pegar as sugestões de filmes da API
+  const results = data.results
+
+  //pegar randomicamente 3 filmes para a sugestão
+  const best3 = select3VIdeos(results).map(async (movie) => {
+    const info = await getMoreInfo(movie)
+    const props = {
+      id: info.id,
+      title: info.title,
+      score: Number(info.vote_average).toFixed(1),
+      image: info.poster_path,
+      time: minutesToHourMinutesAndSeconds(info.runtime),
+      year: info.release_date.slice(0, 4),
+    }
+
+    return createMovieLayout(props)
+  })
+
+  //organizar os dados para
+
+  //substituir o conteudo de 'movies' no html
+}
+
+start()
