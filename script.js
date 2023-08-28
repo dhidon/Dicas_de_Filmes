@@ -346,7 +346,6 @@ const data = {
   total_results: 794460,
 }
 
-// https://api.themoviedb.org/3/movie/{movie_id} -- buscar informações extras dos filmes
 async function getMoreInfo(id) {
   const options = {
     method: "GET",
@@ -368,8 +367,6 @@ async function getMoreInfo(id) {
     console.log(error)
   }
 }
-
-// https://api.themoviedb.org/3/movie//{movie_id}/videos -- esse será usado para assistir o trailer do filme
 
 function watch(e) {}
 
@@ -414,34 +411,31 @@ function select3Videos(results) {
   return [...selectedVideos]
 }
 
-function minutesToHourMinutesAndSeconds(mintes) {
+function minutesToHourMinutesAndSeconds(minutes) {
   const date = new Date(null)
   date.setMinutes(minutes)
   return date.toISOString().slice(11, 19)
 }
 
 async function start() {
-  //pegar as sugestões de filmes da API
   const results = data.results
 
-  //pegar randomicamente 3 filmes para a sugestão
-  const best3 = select3VIdeos(results).map(async (movie) => {
+  const best3 = select3Videos(results).map(async (movie) => {
     const info = await getMoreInfo(movie)
     const props = {
       id: info.id,
       title: info.title,
       score: Number(info.vote_average).toFixed(1),
       image: info.poster_path,
-      time: minutesToHourMinutesAndSeconds(info.runtime),
+      duration: minutesToHourMinutesAndSeconds(info.runtime),
       year: info.release_date.slice(0, 4),
     }
-
     return createMovieLayout(props)
   })
 
-  //organizar os dados para
+  const output = await Promise.all(best3)
 
-  //substituir o conteudo de 'movies' no html
+  document.querySelector(".movies").innerHTML = output.join("")
 }
 
 start()
